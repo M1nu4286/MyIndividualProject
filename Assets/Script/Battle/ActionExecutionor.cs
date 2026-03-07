@@ -13,7 +13,7 @@ public class ActionExecutionor
                 {
                     if (player[j].index == playerOrder[i])
                     {
-                        Debug.Log($"Player {player[j].BaseData.entityID} takes action.");
+                        Debug.Log($"Player {player[j].BaseData.EntityID} takes action.");
                         break;
                     }
                 }
@@ -24,7 +24,7 @@ public class ActionExecutionor
                 {
                     if (enemy[j].index == enemyOrder[i])
                     {
-                        Debug.Log($"Player {enemy[j].BaseData.entityID} takes action.");
+                        Debug.Log($"Player {enemy[j].BasseData.EntityID} takes action.");
                         break;
                     }
                 }

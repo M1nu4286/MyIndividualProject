@@ -1,17 +1,20 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class StateMachine
 {
-    public TotalState currentState { get; private set; }
+    public BattleManager.TotalState currentState { get; private set; }
 
-    public void Initialize(TotalState startState)
+
+
+    public void Initialize(BattleManager.TotalState startState)
     {
         currentState = startState;
         currentState.Enter();
     }
 
-    public void ChangeState(TotalState newState)
+    public void ChangeState(BattleManager.TotalState newState)
     {
         currentState.Exit();
         currentState = newState;

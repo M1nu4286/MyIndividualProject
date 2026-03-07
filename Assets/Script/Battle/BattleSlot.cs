@@ -8,6 +8,6 @@ public struct BattleSlot
     public BattleSlot(SkillData skillData, RuntimeEntity target)
     {
         this.skillData = skillData;
-        this.targetID = target.BaseData.entityID;
+        this.targetID = target.BaseData.EntityID;
     }
 }

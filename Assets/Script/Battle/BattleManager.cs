@@ -3,14 +3,16 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleManager : MonoBehaviour
+public partial class BattleManager : MonoBehaviour
 {
-    ActionExecutionor _actionExecutionor;
-    TurnSequencer _turnSequencer;
-    Spawner _spawner;
-    StateMachine _stateMachine;
-    [SerializeField] private EntityData[] _playerEntitiyDatas;
-    [SerializeField] private EntityData[] _enemyEntitiyDatas;
+    private ActionExecutionor _actionExecutionor;
+    private TurnSequencer _turnSequencer;
+    private Spawner _spawner;
+    private StateMachine _stateMachine;
+    private TotalState[] _statePool;
+
+    [SerializeField] private EntityDatabase[] _playerEntitiyDatas;
+    [SerializeField] private EntityDatabase[] _enemyEntitiyDatas;
     private RuntimeEntity[] _runtimePlayerDatas;
     private RuntimeEntity[] _runtimeEnemyDatas;
     private int[] _playerOrder;
@@ -27,6 +29,13 @@ public class BattleManager : MonoBehaviour
         _spawner = new Spawner();
         _stateMachine = new StateMachine();
 
+        _statePool = new TotalState[(int)BattleState.CleanUpState + 1];
+        _statePool[(int)BattleState.BattleStartState] = new BattleStartState(_stateMachine, this);
+        _statePool[(int)BattleState.EvaluationState] = new EvaluationState(_stateMachine, this);
+        _statePool[(int)BattleState.HapAndClashState] = new HapAndClashState(_stateMachine, this);
+        _statePool[(int)BattleState.ActionExecutionState] = new ActionExecutionState(_stateMachine, this);
+        _statePool[(int)BattleState.CleanUpState] = new CleanUpState(_stateMachine, this);
+
         _spawner.InitHeap(_playerEntitiyDatas.Length + _enemyEntitiyDatas.Length);
 
         _playerIndex = _playerEntitiyDatas.Length;
@@ -41,26 +50,24 @@ public class BattleManager : MonoBehaviour
 
     private void Start()
     {
-        _stateMachine.Initialize(new BattleStartState(_stateMachine, this));
         _spawner.LoadStageData(ref _runtimePlayerDatas, _playerEntitiyDatas, _playerOrder.Length);
         _spawner.LoadStageData(ref _runtimeEnemyDatas, _enemyEntitiyDatas, _enemyOrder.Length);
-        StartTurn();
     }
     [ContextMenu("Start")]
+
+    private void GameStart() 
+    {
+        _stateMachine.Initialize(_statePool[(int)BattleState.BattleStartState]);
+    }
+    [ContextMenu("Start Turn")]
     private void StartTurn()
     {
-        _turnSequencer.TurnStart(_runtimePlayerDatas);
-        _turnSequencer.TurnStart(_runtimeEnemyDatas);
-        RollSpeed();
-        _spawner.GetSortOrder(ref _playerOrder, _playerIndex, _runtimePlayerDatas);
-        _spawner.GetSortOrder(ref _enemyOrder, _enemyIndex, _runtimeEnemyDatas);
-        _actionExecutionor.BattleLog(_playerOrder, _enemyOrder, _runtimePlayerDatas, _runtimeEnemyDatas);
-
     }
 
     [ContextMenu("Select Finish")]
     private void SelectFinish()
     {
+
     }
 
     private void RollSpeed()

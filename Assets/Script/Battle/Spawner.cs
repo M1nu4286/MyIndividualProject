@@ -9,9 +9,9 @@ public class Spawner
 
     public void InitHeap(int maxCapacity)
     {
-        speedHeap = new SpeedHeap(maxCapacity);
+        speedHeap = new SpeedHeap(maxCapacity + 1);
     }
-    public void LoadStageData(ref RuntimeEntity[] stageDatas, EntityData[] entities, int entityIndex)
+    public void LoadStageData(ref RuntimeEntity[] stageDatas, EntityDatabase[] entities, int entityIndex)
     {
         if (entities == null) return;
 
@@ -30,7 +30,7 @@ public class Spawner
         {
             if (runtimeEntities[i].isAlive)
             {
-               
+
                 InsertHeap(ref speedHeap, i, runtimeEntities[i].currentSpeed);
             }
         }
@@ -71,10 +71,10 @@ public class Spawner
         }
     }
 
-    private void InsertHeap(ref SpeedHeap speedHeap, int nodeIndex, int currenSpeed)
+    private void InsertHeap(ref SpeedHeap speedHeap, int nodeIndex, int currentSpeed)
     {
         int index;
-        SpeedHeapNode node = new SpeedHeapNode(nodeIndex, currenSpeed);
+        SpeedHeapNode node = new SpeedHeapNode(nodeIndex, currentSpeed);
         index = ++speedHeap.heapSize;
 
         while ((index != 1) && (node.speed > speedHeap.heap[index / 2].speed))
@@ -82,7 +82,7 @@ public class Spawner
             speedHeap.heap[index] = speedHeap.heap[index / 2];
             index /= 2;
         }
-        speedHeap.heap[index] = node;   
+        speedHeap.heap[index] = node;
     }
 
     private SpeedHeapNode PopMaxHeap(ref SpeedHeap speedHeap)
