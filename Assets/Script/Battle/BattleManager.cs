@@ -82,13 +82,13 @@ public partial class BattleManager : MonoBehaviour
         for (int i = 0; i < _playerIndex; i++)
         {
             if (_runtimePlayerDatas[i].isAlive == false) continue;
-            _runtimePlayerDatas[i].currentSpeed = BattleLogic.Roll(_runtimePlayerDatas[i],i);
+            _runtimePlayerDatas[i].currentSpeed = BattleLogic.Roll(_runtimePlayerDatas[i]);
 
         }
         for (int i = 0; i < _enemyIndex; i++)
         {
             if (_runtimeEnemyDatas[i].isAlive == false) continue;
-            _runtimeEnemyDatas[i].currentSpeed = BattleLogic.Roll(_runtimeEnemyDatas[i],i);
+            _runtimeEnemyDatas[i].currentSpeed = BattleLogic.Roll(_runtimeEnemyDatas[i]);
         }
     }
 }

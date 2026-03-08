@@ -30,8 +30,10 @@ public partial class BattleManager : MonoBehaviour
             _owner.RollSpeed();
             _owner._spawner.GetSortOrder(ref _owner._playerOrder, _owner._playerIndex, _owner._runtimePlayerDatas);
             _owner._spawner.GetSortOrder(ref _owner._enemyOrder, _owner._enemyIndex, _owner._runtimeEnemyDatas);
-            _owner._actionExecutionor.BattleLog(_owner._playerOrder, _owner._enemyOrder, _owner._runtimePlayerDatas, _owner._runtimeEnemyDatas);
+            Debug.Log("속도 설정 완료");
+            
             _stateMachine.ChangeState(_owner._statePool[(int)BattleState.EvaluationState]);
+            
         }
         public override void Exit()
         {

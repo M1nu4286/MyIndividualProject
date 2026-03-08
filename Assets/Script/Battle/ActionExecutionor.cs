@@ -2,33 +2,12 @@ using UnityEngine;
 
 public class ActionExecutionor
 {
-    public void BattleLog(int[] playerOrder, int[] enemyOrder, RuntimeEntity[] player, RuntimeEntity[] enemy)
+    public void BattleLog(int[] entityOrder,int entityIndex, RuntimeEntity[] entity)
     {
-        int totalCount = playerOrder.Length + enemyOrder.Length;
-        for (int i = 0; i < totalCount; i++)
+     
+        for (int i = 0; i < entityIndex; i++) 
         {
-            if (i < playerOrder.Length)
-            {
-                for (int j = 0; j < player.Length; j++)
-                {
-                    if (player[j].index == playerOrder[i])
-                    {
-                        //Debug.Log($"Player {player[j].BaseData.EntityID} takes action.");
-                        break;
-                    }
-                }
-            }
-            if (i < enemyOrder.Length)
-            {
-                for (int j = 0; j < player.Length; j++)
-                {
-                    if (enemy[j].index == enemyOrder[i])
-                    {
-                        //Debug.Log($"Player {enemy[j].BasseData.EntityID} takes action.");
-                        break;
-                    }
-                }
-            }
+                Debug.Log("Speed : "+ entity[entityOrder[i]].currentSpeed+ " Type:" + entity[entityOrder[i]].BaseData.Type  + entity[entityOrder[i]].BaseData.Editor_ID + "actions");
         }
     }
 }

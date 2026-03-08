@@ -1,5 +1,6 @@
 using GameData.Types;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -36,7 +37,6 @@ public class Spawner
         {
             if (runtimeEntities[i].isAlive)
             {
-
                 InsertHeap(ref speedHeap, i, runtimeEntities[i].currentSpeed);
             }
         }
@@ -47,9 +47,9 @@ public class Spawner
         {
             orderList[i] = PopMaxHeap(ref speedHeap).index;
         }
-
-
     }
+
+
 
     private struct SpeedHeap
     {

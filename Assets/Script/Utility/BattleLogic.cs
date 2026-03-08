@@ -3,7 +3,7 @@ using UnityEngine;
 
 public static class BattleLogic
 {
-    public static int Roll(RuntimeEntity entity, int index)
+    public static int Roll(RuntimeEntity entity)
     {
         return Random.Range(entity.BaseData.MaxSpeed, entity.BaseData.MinSpeed + 1);
     }
