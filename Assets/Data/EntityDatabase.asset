@@ -1,0 +1,155 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bec613420aa58374c955b9a35015cad3, type: 3}
+  m_Name: EntityDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::EntityDatabase
+  Entities:
+  - Editor_ID: LS_01
+    EntityIDHash: 217752004
+    MaxHp: 221
+    MinSpeed: 4
+    MaxSpeed: 8
+    Type: 1
+    skllID1: LS_SKILL_01
+    skllID2: LS_SKILL_02
+    skllID3: LS_SKILL_03
+    defenseID: LS_SKILL_04
+    SkillIndex1: 4
+    SkillIndex2: 5
+    SkillIndex3: 6
+    Defense: 7
+  - Editor_ID: HL_01
+    EntityIDHash: 221367615
+    MaxHp: 203
+    MinSpeed: 3
+    MaxSpeed: 6
+    Type: 1
+    skllID1: HL_SKILL_01
+    skllID2: HL_SKILL_02
+    skllID3: HL_SKILL_03
+    defenseID: HL_SKILL_04
+    SkillIndex1: 8
+    SkillIndex2: 9
+    SkillIndex3: 10
+    Defense: 11
+  - Editor_ID: RD_01
+    EntityIDHash: 228876205
+    MaxHp: 239
+    MinSpeed: 2
+    MaxSpeed: 5
+    Type: 1
+    skllID1: RD_SKILL_01
+    skllID2: RD_SKILL_02
+    skllID3: RD_SKILL_03
+    defenseID: RD_SKILL_04
+    SkillIndex1: 16
+    SkillIndex2: 17
+    SkillIndex3: 18
+    Defense: 19
+  - Editor_ID: OT_01
+    EntityIDHash: 219039200
+    MaxHp: 184
+    MinSpeed: 3
+    MaxSpeed: 7
+    Type: 1
+    skllID1: OT_SKILL_01
+    skllID2: OT_SKILL_02
+    skllID3: OT_SKILL_03
+    defenseID: OT_SKILL_04
+    SkillIndex1: 12
+    SkillIndex2: 13
+    SkillIndex3: 14
+    Defense: 15
+  - Editor_ID: FA_01
+    EntityIDHash: 205301532
+    MaxHp: 258
+    MinSpeed: 2
+    MaxSpeed: 4
+    Type: 1
+    skllID1: FA_SKILL_01
+    skllID2: FA_SKILL_02
+    skllID3: FA_SKILL_03
+    defenseID: FA_SKILL_04
+    SkillIndex1: 0
+    SkillIndex2: 1
+    SkillIndex3: 2
+    Defense: 3
+  - Editor_ID: Enemy_01
+    EntityIDHash: -73279519
+    MaxHp: 190
+    MinSpeed: 1
+    MaxSpeed: 4
+    Type: 2
+    skllID1: EN_SKILL_01
+    skllID2: EN_SKILL_02
+    skllID3: EN_SKILL_03
+    defenseID: EN_SKILL_04
+    SkillIndex1: 20
+    SkillIndex2: 21
+    SkillIndex3: 22
+    Defense: 23
+  - Editor_ID: Enemy_02
+    EntityIDHash: -73279518
+    MaxHp: 218
+    MinSpeed: 3
+    MaxSpeed: 6
+    Type: 2
+    skllID1: EN_SKILL_01
+    skllID2: EN_SKILL_02
+    skllID3: EN_SKILL_03
+    defenseID: EN_SKILL_04
+    SkillIndex1: 20
+    SkillIndex2: 21
+    SkillIndex3: 22
+    Defense: 23
+  - Editor_ID: Enemy_03
+    EntityIDHash: -73279517
+    MaxHp: 232
+    MinSpeed: 2
+    MaxSpeed: 5
+    Type: 2
+    skllID1: EN_SKILL_01
+    skllID2: EN_SKILL_02
+    skllID3: EN_SKILL_03
+    defenseID: EN_SKILL_04
+    SkillIndex1: 20
+    SkillIndex2: 21
+    SkillIndex3: 22
+    Defense: 23
+  - Editor_ID: Enemy_04
+    EntityIDHash: -73279516
+    MaxHp: 203
+    MinSpeed: 4
+    MaxSpeed: 7
+    Type: 2
+    skllID1: EN_SKILL_01
+    skllID2: EN_SKILL_02
+    skllID3: EN_SKILL_03
+    defenseID: EN_SKILL_04
+    SkillIndex1: 20
+    SkillIndex2: 21
+    SkillIndex3: 22
+    Defense: 23
+  - Editor_ID: Enemy_05
+    EntityIDHash: -73279515
+    MaxHp: 191
+    MinSpeed: 4
+    MaxSpeed: 8
+    Type: 2
+    skllID1: EN_SKILL_01
+    skllID2: EN_SKILL_02
+    skllID3: EN_SKILL_03
+    defenseID: EN_SKILL_04
+    SkillIndex1: 20
+    SkillIndex2: 21
+    SkillIndex3: 22
+    Defense: 23

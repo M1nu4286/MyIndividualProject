@@ -15,7 +15,15 @@ public class EntityDatabase : ScriptableObject
 
         for (int i = 0; i < Entities.Length; i++)
         {
-            int idHash = HashUtility.HashMachine(Entities.)
+            int idHash = Entities[i].EntityIDHash;
+            if (!_HashToIndex.ContainsKey(idHash))
+            {
+                _HashToIndex[idHash] = i;
+            }
+            else
+            {
+                Debug.LogError($"{i} 해시 충돌.");
+            }
         }
     }
 

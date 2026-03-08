@@ -1,3 +1,4 @@
+using GameData.Types;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -11,16 +12,21 @@ public class Spawner
     {
         speedHeap = new SpeedHeap(maxCapacity + 1);
     }
-    public void LoadStageData(ref RuntimeEntity[] stageDatas, EntityDatabase[] entities, int entityIndex)
+    public void LoadStageData(ref RuntimeEntity[] _stageDatas, EntityEntry[] entities, int entityIndex, EntityType type)
     {
         if (entities == null) return;
 
-        for (int i = 0; i < entityIndex; i++)
+        int tempIndex = 0;
+        for (int i = 0; i < entities.Length && tempIndex < entityIndex; i++)
         {
-            stageDatas[i] = new RuntimeEntity(entities[i], i);
+            if (entities[i].Type == type)
+            {
+                _stageDatas[tempIndex] = new RuntimeEntity(entities[i], tempIndex);
+                tempIndex++;
+            }
         }
 
-        Debug.Log(stageDatas.Length + "마리의 유닛 데이터 로드 완료.");
+        Debug.Log($"{type} 타입 유닛 {_stageDatas.Length}마리 로드 완료.");
     }
 
     public void GetSortOrder(ref int[] orderList, int entityIndex, RuntimeEntity[] runtimeEntities)
@@ -45,11 +51,9 @@ public class Spawner
 
     }
 
-
-
     private struct SpeedHeap
     {
-        public SpeedHeapNode[] heap;
+        public SpeedHeapNode[] heap; //구조체는 값타입인데 지금 힙배열 <- 참조타입
         public int heapSize;
 
         public SpeedHeap(int heapLength)

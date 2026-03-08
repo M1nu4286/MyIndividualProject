@@ -1,0 +1,207 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b76138db521a4144ea1c50e83c611ff6, type: 3}
+  m_Name: SkillDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::SkillDatabase
+  Skills:
+  - Editor_Owner_ID: FA_SKILL_01
+    SkillIDHash: -1107886574
+    BaseDamage: 3
+    CoinValue: 7
+    CoinCount: 1
+    SinType: 6
+    AttackType: 1
+    DefenseType: 0
+  - Editor_Owner_ID: FA_SKILL_02
+    SkillIDHash: -1107886575
+    BaseDamage: 5
+    CoinValue: 4
+    CoinCount: 2
+    SinType: 3
+    AttackType: 1
+    DefenseType: 0
+  - Editor_Owner_ID: FA_SKILL_03
+    SkillIDHash: -1107886576
+    BaseDamage: 7
+    CoinValue: 2
+    CoinCount: 2
+    SinType: 4
+    AttackType: 3
+    DefenseType: 0
+  - Editor_Owner_ID: FA_SKILL_04
+    SkillIDHash: -1107886569
+    BaseDamage: 2
+    CoinValue: 10
+    CoinCount: 1
+    SinType: 6
+    AttackType: 0
+    DefenseType: 1
+  - Editor_Owner_ID: LS_SKILL_01
+    SkillIDHash: 115130826
+    BaseDamage: 4
+    CoinValue: 7
+    CoinCount: 1
+    SinType: 5
+    AttackType: 2
+    DefenseType: 0
+  - Editor_Owner_ID: LS_SKILL_02
+    SkillIDHash: 115130825
+    BaseDamage: 4
+    CoinValue: 4
+    CoinCount: 2
+    SinType: 7
+    AttackType: 3
+    DefenseType: 0
+  - Editor_Owner_ID: LS_SKILL_03
+    SkillIDHash: 115130824
+    BaseDamage: 6
+    CoinValue: 2
+    CoinCount: 3
+    SinType: 3
+    AttackType: 2
+    DefenseType: 0
+  - Editor_Owner_ID: LS_SKILL_04
+    SkillIDHash: 115130831
+    BaseDamage: 7
+    CoinValue: 3
+    CoinCount: 1
+    SinType: 5
+    AttackType: 0
+    DefenseType: 3
+  - Editor_Owner_ID: HL_SKILL_01
+    SkillIDHash: -1293725839
+    BaseDamage: 4
+    CoinValue: 7
+    CoinCount: 1
+    SinType: 6
+    AttackType: 1
+    DefenseType: 0
+  - Editor_Owner_ID: HL_SKILL_02
+    SkillIDHash: -1293725838
+    BaseDamage: 4
+    CoinValue: 4
+    CoinCount: 2
+    SinType: 3
+    AttackType: 2
+    DefenseType: 0
+  - Editor_Owner_ID: HL_SKILL_03
+    SkillIDHash: -1293725837
+    BaseDamage: 6
+    CoinValue: 4
+    CoinCount: 2
+    SinType: 2
+    AttackType: 1
+    DefenseType: 0
+  - Editor_Owner_ID: HL_SKILL_04
+    SkillIDHash: -1293725836
+    BaseDamage: 2
+    CoinValue: 10
+    CoinCount: 1
+    SinType: 3
+    AttackType: 0
+    DefenseType: 1
+  - Editor_Owner_ID: OT_SKILL_01
+    SkillIDHash: -1827995922
+    BaseDamage: 3
+    CoinValue: 2
+    CoinCount: 3
+    SinType: 3
+    AttackType: 3
+    DefenseType: 0
+  - Editor_Owner_ID: OT_SKILL_02
+    SkillIDHash: -1827995923
+    BaseDamage: 5
+    CoinValue: 4
+    CoinCount: 2
+    SinType: 6
+    AttackType: 2
+    DefenseType: 0
+  - Editor_Owner_ID: OT_SKILL_03
+    SkillIDHash: -1827995924
+    BaseDamage: 7
+    CoinValue: 14
+    CoinCount: 1
+    SinType: 5
+    AttackType: 3
+    DefenseType: 0
+  - Editor_Owner_ID: OT_SKILL_04
+    SkillIDHash: -1827995925
+    BaseDamage: 2
+    CoinValue: 10
+    CoinCount: 1
+    SinType: 3
+    AttackType: 0
+    DefenseType: 1
+  - Editor_Owner_ID: RD_SKILL_01
+    SkillIDHash: -224423325
+    BaseDamage: 4
+    CoinValue: 7
+    CoinCount: 1
+    SinType: 4
+    AttackType: 2
+    DefenseType: 0
+  - Editor_Owner_ID: RD_SKILL_02
+    SkillIDHash: -224423328
+    BaseDamage: 4
+    CoinValue: 4
+    CoinCount: 2
+    SinType: 6
+    AttackType: 2
+    DefenseType: 0
+  - Editor_Owner_ID: RD_SKILL_03
+    SkillIDHash: -224423327
+    BaseDamage: 4
+    CoinValue: 2
+    CoinCount: 4
+    SinType: 1
+    AttackType: 2
+    DefenseType: 0
+  - Editor_Owner_ID: RD_SKILL_04
+    SkillIDHash: -224423322
+    BaseDamage: 7
+    CoinValue: 4
+    CoinCount: 1
+    SinType: 1
+    AttackType: 0
+    DefenseType: 2
+  - Editor_Owner_ID: EN_SKILL_01
+    SkillIDHash: -1933391426
+    BaseDamage: 2
+    CoinValue: 1
+    CoinCount: 3
+    SinType: 6
+    AttackType: 1
+    DefenseType: 0
+  - Editor_Owner_ID: EN_SKILL_02
+    SkillIDHash: -1933391427
+    BaseDamage: 3
+    CoinValue: 4
+    CoinCount: 2
+    SinType: 3
+    AttackType: 1
+    DefenseType: 0
+  - Editor_Owner_ID: EN_SKILL_03
+    SkillIDHash: -1933391428
+    BaseDamage: 3
+    CoinValue: 2
+    CoinCount: 3
+    SinType: 1
+    AttackType: 1
+    DefenseType: 0
+  - Editor_Owner_ID: EN_SKILL_04
+    SkillIDHash: -1933391429
+    BaseDamage: 3
+    CoinValue: 7
+    CoinCount: 1
+    SinType: 3
+    AttackType: 0
+    DefenseType: 2

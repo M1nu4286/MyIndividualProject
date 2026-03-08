@@ -1,8 +1,9 @@
+using GameData.Types;
 using UnityEngine;
 
-public static class HapCalculator 
+public static class HapCalculator
 {
-    public static BattleResult CalculateHap(SkillData p1, SkillData p2)
+    public static BattleResult CalculateHap(SkillEntry p1,SkillEntry p2)
     {
         int p1CoinCount = p1.CoinCount;
         int p2CoinCount = p2.CoinCount;
@@ -30,16 +31,16 @@ public static class HapCalculator
         return new BattleResult(p1CoinCount, p2CoinCount);
     }
 
-    private static int CalculatePower(SkillData skillData, int currentCoin) 
+    private static int CalculatePower(SkillEntry skillData, int currentCoin)
     {
-        int coinFlipResult=0;
+        int coinFlipResult = 0;
 
-        for(int i = 0; i < currentCoin; i++) 
+        for (int i = 0; i < currentCoin; i++)
         {
-            if(Random.value > 0.5f) 
+            if (Random.value > 0.5f)
                 coinFlipResult++;
         }
 
-        return skillData.BaseDamage + ( coinFlipResult * skillData.CoinValue);
+        return skillData.BaseDamage + (coinFlipResult * skillData.CoinValue);
     }
 }

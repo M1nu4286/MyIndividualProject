@@ -44,7 +44,7 @@ public partial class BattleManager : MonoBehaviour
         public EvaluationState(StateMachine stateMachine, BattleManager owner) : base(stateMachine, owner)
         {
         }
-        public override void Enter() 
+        public override void Enter()
         {
             Debug.Log("Evaluation State: Evaluating actions...");
         }

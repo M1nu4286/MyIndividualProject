@@ -13,18 +13,18 @@ public class ActionExecutionor
                 {
                     if (player[j].index == playerOrder[i])
                     {
-                        Debug.Log($"Player {player[j].BaseData.EntityID} takes action.");
+                        //Debug.Log($"Player {player[j].BaseData.EntityID} takes action.");
                         break;
                     }
                 }
             }
-            if( i < enemyOrder.Length)
+            if (i < enemyOrder.Length)
             {
                 for (int j = 0; j < player.Length; j++)
                 {
                     if (enemy[j].index == enemyOrder[i])
                     {
-                        Debug.Log($"Player {enemy[j].BasseData.EntityID} takes action.");
+                        //Debug.Log($"Player {enemy[j].BasseData.EntityID} takes action.");
                         break;
                     }
                 }

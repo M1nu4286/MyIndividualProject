@@ -1,13 +1,14 @@
+using GameData.Types;
 using UnityEngine;
 
 public struct BattleSlot
 {
-    SkillData skillData;
-    string targetID;
+    SkillEntry skillData;
+    int targetID;
 
-    public BattleSlot(SkillData skillData, RuntimeEntity target)
+    public BattleSlot(SkillEntry skillData, RuntimeEntity target)
     {
         this.skillData = skillData;
-        this.targetID = target.BaseData.EntityID;
+        this.targetID = target.BaseData.EntityIDHash;
     }
 }

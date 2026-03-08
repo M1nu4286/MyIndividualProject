@@ -1,9 +1,21 @@
+using GameData.Types;
 using UnityEngine;
 
 public static class BattleLogic
 {
-    public static int Roll(RuntimeEntity entity)
+    public static int Roll(RuntimeEntity entity, int index)
     {
-         return Random.Range(entity.BaseData.MinSpeed, entity.BaseData.MaxSpeed + 1);
+        return Random.Range(entity.BaseData.MaxSpeed, entity.BaseData.MinSpeed + 1);
+    }
+
+    public static int IndexCreator(EntityDatabase entity,EntityType type) 
+    {
+        int index = 0;
+        for (int i = 0; i < entity.Entities.Length; i++)
+        {
+            if(entity.Entities[i].Type == type)
+                index++;
+        }
+        return index;
     }
 }

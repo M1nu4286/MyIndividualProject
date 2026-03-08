@@ -1,4 +1,6 @@
 using System;
+using System.ComponentModel;
+using Unity.Collections;
 using UnityEngine;
 
 namespace GameData.Types
@@ -19,7 +21,7 @@ namespace GameData.Types
         Wrath,   // 분노
         Lust,    // 색욕
         Sloth,   // 나태
-        Gluttony, // 폭식
+        Glut, // 폭식
         Gloom,   // 우울
         Pride,   // 오만
         Envy     // 질투
@@ -44,23 +46,39 @@ namespace GameData.Types
     }
     // 5. 엔티티 정보
     [System.Serializable]
-    public struct EntityEntry 
+    public struct EntityEntry
     {
+#if UNITY_EDITOR
+        public String Editor_ID;
+#endif
         public int EntityIDHash;
         public int MaxHp;
         public int MinSpeed;
         public int MaxSpeed;
         public EntityType Type;
 
+#if UNITY_EDITOR
+        public String skllID1;
+        public String skllID2;
+        public String skllID3;
+        public String defenseID;
+#endif
+        [HideInInspector]
         public int SkillIndex1;
+        [HideInInspector]
         public int SkillIndex2;
+        [HideInInspector]
         public int SkillIndex3;
+        [HideInInspector]
         public int Defense;
     }
     // 6. 스킬 정보
     [System.Serializable]
     public struct SkillEntry // 개별 스킬 정보 (값 타입)
     {
+        #if UNITY_EDITOR
+        public String Editor_Owner_ID;
+        #endif
         public int SkillIDHash;
         public int BaseDamage;
         public int CoinValue;

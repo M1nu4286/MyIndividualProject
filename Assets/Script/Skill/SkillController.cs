@@ -1,3 +1,4 @@
+using GameData.Types;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,7 +9,7 @@ public class SkillController : MonoBehaviour
     private SkillShuffler _shuffler;
     private SkillSlotManager _slotManager;
     private int _slotIndex;
-    public SkillData skillData;
+    public SkillEntry skillData;
 
     private void Awake()
     {
@@ -23,15 +24,15 @@ public class SkillController : MonoBehaviour
 
     private void Update()
     {
-        
-       
+
+
     }
 
 
     [ContextMenu("First Skill")]
-    private void FirstSkill() 
+    private void FirstSkill()
     {
-        _actionHandler.HandleAction(gameObject ,_slotManager.slot1);
+        _actionHandler.HandleAction(gameObject, _slotManager.slot1);
         _slotIndex = 1;
     }
     [ContextMenu("Second Skill")]
@@ -41,7 +42,7 @@ public class SkillController : MonoBehaviour
         _slotIndex = 2;
     }
     [ContextMenu("Select End")]
-    private void SelectEnd() 
+    private void SelectEnd()
     {
         _actionHandler.ActionStart();
         _slotManager.RefillSlots(_slotIndex);
