@@ -28,10 +28,8 @@ public partial class BattleManager : MonoBehaviour
             base.Enter();
             Debug.Log("Battle Start State: Initializing battle...");
             _owner.RollSpeed();
-            _owner._spawner.GetSortOrder(ref _owner._playerOrder, _owner._playerIndex, _owner._runtimePlayerDatas);
-            _owner._spawner.GetSortOrder(ref _owner._enemyOrder, _owner._enemyIndex, _owner._runtimeEnemyDatas);
-            Debug.Log("속도 설정 완료");
-            
+            _owner._spawner.GetSortOrder(ref _owner._entityOrder, _owner._entityIndex, _owner._runtimeEntityDatas);
+            _owner._actionExecutionor.BattleLog(_owner._entityOrder, _owner._entityIndex, _owner._runtimeEntityDatas);
             _stateMachine.ChangeState(_owner._statePool[(int)BattleState.EvaluationState]);
             
         }

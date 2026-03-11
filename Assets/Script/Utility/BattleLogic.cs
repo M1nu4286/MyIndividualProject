@@ -8,12 +8,12 @@ public static class BattleLogic
         return Random.Range(entity.BaseData.MaxSpeed, entity.BaseData.MinSpeed + 1);
     }
 
-    public static int IndexCreator(EntityDatabase entity,EntityType type) 
+    public static int IndexCreator(EntityDatabase entity, EntityType type)
     {
         int index = 0;
         for (int i = 0; i < entity.Entities.Length; i++)
         {
-            if(entity.Entities[i].Type == type)
+            if (entity.Entities[i].Type == type)
                 index++;
         }
         return index;

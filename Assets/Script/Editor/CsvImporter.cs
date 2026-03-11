@@ -52,6 +52,7 @@ public class CsvImporter
                 s.Editor_Owner_ID = d[0].Trim(); // 에디터에서만 보이는 이름
 #endif
                 s.SkillIDHash = HashUtility.HashMachine(d[0]);
+                s.Skills_Num = int.Parse(d[0].Trim().Substring(d[0].Length-2,2));
                 s.BaseDamage = int.Parse(d[1]);
                 s.CoinValue = int.Parse(d[2]);
                 s.CoinCount = int.Parse(d[3]);

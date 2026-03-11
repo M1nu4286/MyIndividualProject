@@ -1,3 +1,4 @@
+using GameData.Types;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -10,22 +11,27 @@ public partial class BattleManager : MonoBehaviour
     private Spawner _spawner;
     private StateMachine _stateMachine;
     private TotalState[] _statePool;
+    public EntityType entityType;
 
     //유닛 데이터
     [SerializeField] private EntityDatabase _EntitiyDatas;
     [SerializeField] private SkillDatabase _skillDatas;
-    
+
     //런타임데이터
+    private RuntimeEntity[] _runtimeEntityDatas;
     private RuntimeEntity[] _runtimePlayerDatas;
     private RuntimeEntity[] _runtimeEnemyDatas;
-    
+
     //객체별 개수
+    private int _entityIndex;
     private int _playerIndex;
     private int _enemyIndex;
 
+
     //간접참조 배열
+    private int[] _entityOrder;
     private int[] _playerOrder;
-    private int[] _enemyOrder;
+    private int[] _enemyrOrder;
 
 
 
@@ -44,21 +50,23 @@ public partial class BattleManager : MonoBehaviour
         _statePool[(int)BattleState.CleanUpState] = new CleanUpState(_stateMachine, this);
 
         _spawner.InitHeap(_EntitiyDatas.Entities.Length);
+        _turnSequencer.InitHash(_EntitiyDatas, _skillDatas);
 
         _playerIndex = BattleLogic.IndexCreator(_EntitiyDatas, GameData.Types.EntityType.Player);
         _enemyIndex = BattleLogic.IndexCreator(_EntitiyDatas, GameData.Types.EntityType.Enemy);
+        _entityIndex = _EntitiyDatas.Entities.Length;
 
-        _playerOrder = new int[_playerIndex];
-        _enemyOrder = new int[_enemyIndex];
+        _entityOrder = new int[_entityIndex];
+        _runtimeEntityDatas = new RuntimeEntity[_entityIndex];
 
-        _runtimePlayerDatas = new RuntimeEntity[_playerIndex];
-        _runtimeEnemyDatas = new RuntimeEntity[_enemyIndex];
+
+   
     }
 
     private void Start()
     {
-        _spawner.LoadStageData(ref _runtimePlayerDatas, _EntitiyDatas.Entities, _playerIndex, GameData.Types.EntityType.Player);
-        _spawner.LoadStageData(ref _runtimeEnemyDatas, _EntitiyDatas.Entities, _enemyIndex, GameData.Types.EntityType.Enemy);
+        _spawner.LoadStageData(ref _runtimeEntityDatas, _EntitiyDatas.Entities, _entityIndex);
+        SplitEntitiesByType();
     }
     [ContextMenu("Start")]
 
@@ -79,16 +87,25 @@ public partial class BattleManager : MonoBehaviour
 
     private void RollSpeed()
     {
-        for (int i = 0; i < _playerIndex; i++)
+        for (int i = 0; i < _entityIndex; i++)
         {
-            if (_runtimePlayerDatas[i].isAlive == false) continue;
-            _runtimePlayerDatas[i].currentSpeed = BattleLogic.Roll(_runtimePlayerDatas[i]);
+            if (_runtimeEntityDatas[i].isAlive == false) continue;
+            _runtimeEntityDatas[i].currentSpeed = BattleLogic.Roll(_runtimeEntityDatas[i]);
 
         }
-        for (int i = 0; i < _enemyIndex; i++)
+    }
+    private void SplitEntitiesByType()
+    {
+        _runtimePlayerDatas = new RuntimeEntity[_playerIndex];
+        _runtimeEnemyDatas = new RuntimeEntity[_enemyIndex];  // 필드 추가 필요
+
+        int pIdx = 0, eIdx = 0;
+        for (int i = 0; i < _entityIndex; i++)
         {
-            if (_runtimeEnemyDatas[i].isAlive == false) continue;
-            _runtimeEnemyDatas[i].currentSpeed = BattleLogic.Roll(_runtimeEnemyDatas[i]);
+            if (_runtimeEntityDatas[i].BaseData.Type == GameData.Types.EntityType.Player)
+                _runtimePlayerDatas[pIdx++] = _runtimeEntityDatas[i];
+            else
+                _runtimeEnemyDatas[eIdx++] = _runtimeEntityDatas[i];
         }
     }
 }

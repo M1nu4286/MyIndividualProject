@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillDatabase
   Skills:
   - Editor_Owner_ID: FA_SKILL_01
+    Skills_Num: 1
     SkillIDHash: -1107886574
     BaseDamage: 3
     CoinValue: 7
@@ -21,7 +22,9 @@ MonoBehaviour:
     SinType: 6
     AttackType: 1
     DefenseType: 0
+    skillIcon: {fileID: 21300000, guid: 86556757b6f409b43933c12f6e4cbf9d, type: 3}
   - Editor_Owner_ID: FA_SKILL_02
+    Skills_Num: 2
     SkillIDHash: -1107886575
     BaseDamage: 5
     CoinValue: 4
@@ -29,7 +32,9 @@ MonoBehaviour:
     SinType: 3
     AttackType: 1
     DefenseType: 0
+    skillIcon: {fileID: 21300000, guid: d920caa488e11e2448522fabde4c5679, type: 3}
   - Editor_Owner_ID: FA_SKILL_03
+    Skills_Num: 3
     SkillIDHash: -1107886576
     BaseDamage: 7
     CoinValue: 2
@@ -37,7 +42,9 @@ MonoBehaviour:
     SinType: 4
     AttackType: 3
     DefenseType: 0
+    skillIcon: {fileID: 21300000, guid: ce1df99e5ec31a443b5c56f20412093e, type: 3}
   - Editor_Owner_ID: FA_SKILL_04
+    Skills_Num: 4
     SkillIDHash: -1107886569
     BaseDamage: 2
     CoinValue: 10
@@ -45,7 +52,9 @@ MonoBehaviour:
     SinType: 6
     AttackType: 0
     DefenseType: 1
+    skillIcon: {fileID: 7694014812932834686, guid: dcab0c6b9ac71bf4488066e5d7d0f052, type: 3}
   - Editor_Owner_ID: LS_SKILL_01
+    Skills_Num: 1
     SkillIDHash: 115130826
     BaseDamage: 4
     CoinValue: 7
@@ -53,7 +62,9 @@ MonoBehaviour:
     SinType: 5
     AttackType: 2
     DefenseType: 0
+    skillIcon: {fileID: 21300000, guid: a40c3f1b94c1ee64cab4e59b30930d96, type: 3}
   - Editor_Owner_ID: LS_SKILL_02
+    Skills_Num: 2
     SkillIDHash: 115130825
     BaseDamage: 4
     CoinValue: 4
@@ -61,7 +72,9 @@ MonoBehaviour:
     SinType: 7
     AttackType: 3
     DefenseType: 0
+    skillIcon: {fileID: 21300000, guid: 7e4b8c3e856e7324bb0d800768a9f116, type: 3}
   - Editor_Owner_ID: LS_SKILL_03
+    Skills_Num: 3
     SkillIDHash: 115130824
     BaseDamage: 6
     CoinValue: 2
@@ -69,7 +82,9 @@ MonoBehaviour:
     SinType: 3
     AttackType: 2
     DefenseType: 0
+    skillIcon: {fileID: 21300000, guid: 589896fb90e46784286257a2dfaf311a, type: 3}
   - Editor_Owner_ID: LS_SKILL_04
+    Skills_Num: 4
     SkillIDHash: 115130831
     BaseDamage: 7
     CoinValue: 3
@@ -77,7 +92,9 @@ MonoBehaviour:
     SinType: 5
     AttackType: 0
     DefenseType: 3
+    skillIcon: {fileID: -8594515011827703002, guid: eab1d5272ca32c84cb97ff434ec237ae, type: 3}
   - Editor_Owner_ID: HL_SKILL_01
+    Skills_Num: 1
     SkillIDHash: -1293725839
     BaseDamage: 4
     CoinValue: 7
@@ -85,7 +102,9 @@ MonoBehaviour:
     SinType: 6
     AttackType: 1
     DefenseType: 0
+    skillIcon: {fileID: 21300000, guid: 7caaca59e3020ed4caf12ac1e19ef34e, type: 3}
   - Editor_Owner_ID: HL_SKILL_02
+    Skills_Num: 2
     SkillIDHash: -1293725838
     BaseDamage: 4
     CoinValue: 4
@@ -93,7 +112,9 @@ MonoBehaviour:
     SinType: 3
     AttackType: 2
     DefenseType: 0
+    skillIcon: {fileID: 21300000, guid: 1f6ceca19891df042815bce7fe31f077, type: 3}
   - Editor_Owner_ID: HL_SKILL_03
+    Skills_Num: 3
     SkillIDHash: -1293725837
     BaseDamage: 6
     CoinValue: 4
@@ -101,7 +122,9 @@ MonoBehaviour:
     SinType: 2
     AttackType: 1
     DefenseType: 0
+    skillIcon: {fileID: 21300000, guid: ff459904029ecfc489a01fb89bf42b15, type: 3}
   - Editor_Owner_ID: HL_SKILL_04
+    Skills_Num: 4
     SkillIDHash: -1293725836
     BaseDamage: 2
     CoinValue: 10
@@ -109,7 +132,9 @@ MonoBehaviour:
     SinType: 3
     AttackType: 0
     DefenseType: 1
+    skillIcon: {fileID: -5081659279774951377, guid: 6232e56ea16d27447ab39fc3e46c2fda, type: 3}
   - Editor_Owner_ID: OT_SKILL_01
+    Skills_Num: 1
     SkillIDHash: -1827995922
     BaseDamage: 3
     CoinValue: 2
@@ -117,7 +142,9 @@ MonoBehaviour:
     SinType: 3
     AttackType: 3
     DefenseType: 0
+    skillIcon: {fileID: 21300000, guid: 8628693c0bab6634bbd4c108a95b08aa, type: 3}
   - Editor_Owner_ID: OT_SKILL_02
+    Skills_Num: 2
     SkillIDHash: -1827995923
     BaseDamage: 5
     CoinValue: 4
@@ -125,7 +152,9 @@ MonoBehaviour:
     SinType: 6
     AttackType: 2
     DefenseType: 0
+    skillIcon: {fileID: 21300000, guid: 54e31b476e882454ab54af469769fbce, type: 3}
   - Editor_Owner_ID: OT_SKILL_03
+    Skills_Num: 3
     SkillIDHash: -1827995924
     BaseDamage: 7
     CoinValue: 14
@@ -133,7 +162,9 @@ MonoBehaviour:
     SinType: 5
     AttackType: 3
     DefenseType: 0
+    skillIcon: {fileID: 21300000, guid: 62841ac42a03a3a498f1dde4d5299703, type: 3}
   - Editor_Owner_ID: OT_SKILL_04
+    Skills_Num: 4
     SkillIDHash: -1827995925
     BaseDamage: 2
     CoinValue: 10
@@ -141,7 +172,9 @@ MonoBehaviour:
     SinType: 3
     AttackType: 0
     DefenseType: 1
+    skillIcon: {fileID: -5081659279774951377, guid: 6232e56ea16d27447ab39fc3e46c2fda, type: 3}
   - Editor_Owner_ID: RD_SKILL_01
+    Skills_Num: 1
     SkillIDHash: -224423325
     BaseDamage: 4
     CoinValue: 7
@@ -149,7 +182,9 @@ MonoBehaviour:
     SinType: 4
     AttackType: 2
     DefenseType: 0
+    skillIcon: {fileID: 21300000, guid: b8c1193127f569d4f8d5db508af9b76b, type: 3}
   - Editor_Owner_ID: RD_SKILL_02
+    Skills_Num: 2
     SkillIDHash: -224423328
     BaseDamage: 4
     CoinValue: 4
@@ -157,7 +192,9 @@ MonoBehaviour:
     SinType: 6
     AttackType: 2
     DefenseType: 0
+    skillIcon: {fileID: 21300000, guid: 274ad2cf36b96b144a5813a15493b60e, type: 3}
   - Editor_Owner_ID: RD_SKILL_03
+    Skills_Num: 3
     SkillIDHash: -224423327
     BaseDamage: 4
     CoinValue: 2
@@ -165,7 +202,9 @@ MonoBehaviour:
     SinType: 1
     AttackType: 2
     DefenseType: 0
+    skillIcon: {fileID: 21300000, guid: 7cf42e85eb9da23438c08320c55078d5, type: 3}
   - Editor_Owner_ID: RD_SKILL_04
+    Skills_Num: 4
     SkillIDHash: -224423322
     BaseDamage: 7
     CoinValue: 4
@@ -173,7 +212,9 @@ MonoBehaviour:
     SinType: 1
     AttackType: 0
     DefenseType: 2
+    skillIcon: {fileID: 4673128588958589295, guid: 7a164a3da77a98f45bf5f43b971eddab, type: 3}
   - Editor_Owner_ID: EN_SKILL_01
+    Skills_Num: 1
     SkillIDHash: -1933391426
     BaseDamage: 2
     CoinValue: 1
@@ -181,7 +222,9 @@ MonoBehaviour:
     SinType: 6
     AttackType: 1
     DefenseType: 0
+    skillIcon: {fileID: 21300000, guid: 4065b42f1e67b3545a7d67cf2d161d38, type: 3}
   - Editor_Owner_ID: EN_SKILL_02
+    Skills_Num: 2
     SkillIDHash: -1933391427
     BaseDamage: 3
     CoinValue: 4
@@ -189,7 +232,9 @@ MonoBehaviour:
     SinType: 3
     AttackType: 1
     DefenseType: 0
+    skillIcon: {fileID: 21300000, guid: 81049b9f31f51a141bc8097b222c6a22, type: 3}
   - Editor_Owner_ID: EN_SKILL_03
+    Skills_Num: 3
     SkillIDHash: -1933391428
     BaseDamage: 3
     CoinValue: 2
@@ -197,7 +242,9 @@ MonoBehaviour:
     SinType: 1
     AttackType: 1
     DefenseType: 0
+    skillIcon: {fileID: 21300000, guid: 32a7dced6820a534295d193e659b8faf, type: 3}
   - Editor_Owner_ID: EN_SKILL_04
+    Skills_Num: 4
     SkillIDHash: -1933391429
     BaseDamage: 3
     CoinValue: 7
@@ -205,3 +252,4 @@ MonoBehaviour:
     SinType: 3
     AttackType: 0
     DefenseType: 2
+    skillIcon: {fileID: 8463398525451905115, guid: b5018d215f4925545a3c6b86ab9e54c8, type: 3}

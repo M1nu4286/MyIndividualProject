@@ -7,6 +7,7 @@ using UnityEngine;
 public class SkillDatabase : ScriptableObject
 {
     public SkillEntry[] Skills;
+    
     private Dictionary<int, int> _hashToIndex;
 
     public void Initialize()
@@ -28,4 +29,5 @@ public class SkillDatabase : ScriptableObject
         if (_hashToIndex.TryGetValue(hash, out int index)) return Skills[index];
         return default;
     }
+
 }

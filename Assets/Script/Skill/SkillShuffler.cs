@@ -2,39 +2,35 @@ using UnityEngine;
 
 public class SkillShuffler
 {
-    private readonly SkillType[] _cycle = new SkillType[6];
-    private int _currentIndex = 0;
-
-    public SkillShuffler()
+    private int[] Slots;
+    public SkillShuffler(int[] Slots) 
     {
-        _cycle[0] = SkillType.Skill_1;
-        _cycle[1] = SkillType.Skill_1;
-        _cycle[2] = SkillType.Skill_1;
-        _cycle[3] = SkillType.Skill_2;
-        _cycle[4] = SkillType.Skill_2;
-        _cycle[5] = SkillType.Skill_3;
-
+        this.Slots = Slots;
         Shuffle();
     }
+    private int _currentIndex = 0;
 
-    private void Shuffle()
+
+    public int[] Shuffle()
     {
-        for (int i = _cycle.Length - 1; i >= 0; i--)
+        for (int i = Slots.Length - 1; i >= 0; i--)
         {
             int j = Random.Range(0, i + 1);
-            SkillType temp = _cycle[j];
-            _cycle[j] = _cycle[i];
-            _cycle[i] = temp;
+            int temp = Slots[j];
+            Slots[j] = Slots[i];
+            Slots[i] = temp;
         }
         _currentIndex = 0;
+        return Slots;
     }
-    public SkillType Pop() {
+    public int Pop()
+    {
 
-        if (_currentIndex >= _cycle.Length) 
+        if (_currentIndex >= Slots.Length)
         {
             Shuffle();
         }
 
-        return _cycle[_currentIndex++];
+        return Slots[_currentIndex++];
     }
 }

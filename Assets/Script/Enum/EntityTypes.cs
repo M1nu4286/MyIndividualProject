@@ -13,6 +13,13 @@ namespace GameData.Types
         Enemy,
         Neutral
     }
+    public enum SlotType : byte
+    {
+        Profile = 0,
+        FirstSlot,
+        SecondSlot,
+        NextSlot,
+    }
 
     // 2. ÁË¾Ç ¼Ó¼º (Sin Attributes)
     public enum SinType : byte
@@ -79,6 +86,7 @@ namespace GameData.Types
         #if UNITY_EDITOR
         public String Editor_Owner_ID;
         #endif
+        public int Skills_Num;
         public int SkillIDHash;
         public int BaseDamage;
         public int CoinValue;
@@ -86,5 +94,6 @@ namespace GameData.Types
         public SinType SinType;
         public AttackType AttackType;
         public DefenseType DefenseType;
+        public Sprite skillIcon;
     }
 }
