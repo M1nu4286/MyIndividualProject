@@ -662,6 +662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleManager
   entityType: 0
+  _skillSlotUI: {fileID: 320489595}
   _EntitiyDatas: {fileID: 11400000, guid: a9da4d90d32c064468b4b3361b8965f7, type: 2}
   _skillDatas: {fileID: 11400000, guid: 13f33a1f00fb5074aa67323923983013, type: 2}
 --- !u!4 &1045910573
@@ -691,7 +692,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63047da6e36f3024891ba051dded0dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TurnSequencer
-  _slotManager: {fileID: 320489595}
 --- !u!1 &1053677501
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,9 +27,11 @@ public partial class BattleManager : MonoBehaviour
         {
             base.Enter();
             Debug.Log("Battle Start State: Initializing battle...");
+
             _owner.RollSpeed();
             _owner._spawner.GetSortOrder(ref _owner._entityOrder, _owner._entityIndex, _owner._runtimeEntityDatas);
-            _owner._actionExecutionor.BattleLog(_owner._entityOrder, _owner._entityIndex, _owner._runtimeEntityDatas);
+
+            //_owner._actionExecutionor.BattleLog(_owner._entityOrder, _owner._entityIndex, _owner._runtimeEntityDatas);
             _stateMachine.ChangeState(_owner._statePool[(int)BattleState.EvaluationState]);
             
         }
@@ -47,6 +49,8 @@ public partial class BattleManager : MonoBehaviour
         public override void Enter()
         {
             Debug.Log("Evaluation State: Evaluating actions...");
+            int currentActorIdx = _owner._entityOrder[0];
+            _owner.GetTurnSequencer().ProcessTurn(currentActorIdx, _owner._runtimeEntityDatas);
         }
 
         public override void Exit()

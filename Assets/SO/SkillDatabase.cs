@@ -26,6 +26,7 @@ public class SkillDatabase : ScriptableObject
     // 해시로 검색 (특정 스킬 ID로 정보를 찾을 때)
     public SkillEntry GetSkillByHash(int hash)
     {
+
         if (_hashToIndex.TryGetValue(hash, out int index)) return Skills[index];
         return default;
     }
