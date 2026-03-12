@@ -70,13 +70,9 @@ namespace GameData.Types
         public String skllID3;
         public String defenseID;
 #endif
-        [HideInInspector]
         public int SkillIndex1;
-        [HideInInspector]
         public int SkillIndex2;
-        [HideInInspector]
         public int SkillIndex3;
-        [HideInInspector]
         public int Defense;
     }
     // 6. 스킬 정보
@@ -96,4 +92,6 @@ namespace GameData.Types
         public DefenseType DefenseType;
         public Sprite skillIcon;
     }
+
+
 }

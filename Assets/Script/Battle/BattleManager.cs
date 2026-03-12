@@ -3,9 +3,11 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public partial class BattleManager : MonoBehaviour
 {
+    //부품 선언
     private ActionExecutionor _actionExecutionor;
     private TurnSequencer _turnSequencer;
     private Spawner _spawner;
@@ -20,8 +22,6 @@ public partial class BattleManager : MonoBehaviour
 
     //런타임데이터
     private RuntimeEntity[] _runtimeEntityDatas;
-    private RuntimeEntity[] _runtimePlayerDatas;
-    private RuntimeEntity[] _runtimeEnemyDatas;
 
     //객체별 개수
     private int _entityIndex;
@@ -31,9 +31,6 @@ public partial class BattleManager : MonoBehaviour
 
     //간접참조 배열
     private int[] _entityOrder;
-    private int[] _playerOrder;
-    private int[] _enemyrOrder;
-
 
 
     private void Awake()
@@ -45,8 +42,12 @@ public partial class BattleManager : MonoBehaviour
         _spawner = new Spawner();
         _stateMachine = new StateMachine();
 
-        _turnSequencer.InitHash(_EntitiyDatas, _skillDatas,_skillSlotUI);
+        if (_skillSlotUI == null) Debug.LogError("SkillSlotManager is NOT assigned in BattleManager!");
+        if (_skillDatas == null) Debug.LogError("SkillDatabase is NOT assigned in BattleManager!");
+        //턴시퀀서에 객체,스킬,UI정보 넘기기
+        _turnSequencer.InitHash(_EntitiyDatas, _skillDatas, _skillSlotUI);
 
+        //FSM state 선언
         _statePool = new TotalState[(int)BattleState.CleanUpState + 1];
         _statePool[(int)BattleState.BattleStartState] = new BattleStartState(_stateMachine, this);
         _statePool[(int)BattleState.EvaluationState] = new EvaluationState(_stateMachine, this);
@@ -54,6 +55,7 @@ public partial class BattleManager : MonoBehaviour
         _statePool[(int)BattleState.ActionExecutionState] = new ActionExecutionState(_stateMachine, this);
         _statePool[(int)BattleState.CleanUpState] = new CleanUpState(_stateMachine, this);
 
+        //속도 리롤 우선순위 큐 위한 힙 길이 할당
         _spawner.InitHeap(_EntitiyDatas.Entities.Length);
 
 
@@ -62,42 +64,35 @@ public partial class BattleManager : MonoBehaviour
         _entityOrder = new int[_entityIndex];
 
         _runtimeEntityDatas = new RuntimeEntity[_entityIndex];
+        _playerIndex = BattleLogic.IndexCreator(_EntitiyDatas, GameData.Types.EntityType.Player);
+        _enemyIndex = BattleLogic.IndexCreator(_EntitiyDatas, GameData.Types.EntityType.Enemy);
+
     }
 
     private void Start()
     {
         _spawner.LoadStageData(ref _runtimeEntityDatas, _EntitiyDatas.Entities, _entityIndex);
-        SplitEntitiesByType();
+  
     }
 
     private void Update()
     {
-        if(_stateMachine.currentState !=null)
-        _stateMachine.UpdateActiveState();
+        if (_stateMachine.currentState != null)
+            _stateMachine.UpdateActiveState();
     }
 
 
     public TurnSequencer GetTurnSequencer() => _turnSequencer;
     public SkillSlotManager GetSkillUI() => _skillSlotUI;
-    public RuntimeEntity[] GetPlayerDatas() => _runtimePlayerDatas;
 
 
-    [ContextMenu("Start")]
+    [ContextMenu("Game Start")]
 
     private void GameStart()
     {
         _stateMachine.Initialize(_statePool[(int)BattleState.BattleStartState]);
     }
-    [ContextMenu("Start Turn")]
-    private void StartTurn()
-    {
-    }
 
-    [ContextMenu("Select Finish")]
-    private void SelectFinish()
-    {
-
-    }
 
     private void RollSpeed()
     {
@@ -108,22 +103,27 @@ public partial class BattleManager : MonoBehaviour
 
         }
     }
-    private void SplitEntitiesByType()
-    {
-        _playerIndex = BattleLogic.IndexCreator(_EntitiyDatas, GameData.Types.EntityType.Player);
-        _enemyIndex = BattleLogic.IndexCreator(_EntitiyDatas, GameData.Types.EntityType.Enemy);
+    //private void SplitDatas() 
+    //{
+    //    int pIdx = 0;
+    //    int eIdx = 0;
+    //    for (int i = 0; i < _runtimeEntityDatas.Length ; i++)
+    //    {
+    //        if (_runtimeEntityDatas[i].BaseData.Type == GameData.Types.EntityType.Player)
+    //        {
+    //            _runtimePlayerDatas[i].index= pIdx;
+    //            _runtimePlayerDatas[i].refData= i;
 
-        _runtimePlayerDatas = new RuntimeEntity[_playerIndex];
-        _runtimeEnemyDatas = new RuntimeEntity[_enemyIndex]; 
-
-        int pIdx = 0, eIdx = 0;
-        for (int i = 0; i < _entityIndex; i++)
-        {
-            if (_runtimeEntityDatas[i].BaseData.Type == GameData.Types.EntityType.Player)
-                _runtimePlayerDatas[pIdx++] = _runtimeEntityDatas[i];
-            else
-                _runtimeEnemyDatas[eIdx++] = _runtimeEntityDatas[i];
-        }
-    }
+    //            pIdx++;
+    //        }
+    //        if (_runtimeEntityDatas[i].BaseData.Type == GameData.Types.EntityType.Enemy)
+    //        {
+    //            _runtimeEnemyDatas[eIdx].index = eIdx;
+    //            _runtimeEnemyDatas[eIdx].refData= i;
+    //            eIdx++;
+    //        }
+    //    }
+    //}
+   
 }
 

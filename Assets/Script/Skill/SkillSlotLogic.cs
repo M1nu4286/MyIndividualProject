@@ -9,10 +9,10 @@ public class SkillSlotLogic
     public SkillSlotLogic(SkillShuffler shuffler)
     {
         _shuffler = shuffler;
-        currentSlots[0] = _shuffler.Pop();
-        currentSlots[1] = _shuffler.Pop();
-        currentSlots[2] = _shuffler.Pop();
-
+        for (int i = 0; i < 3; i++)
+        {
+            currentSlots[i] = _shuffler.Pop();
+        }
         Debug.Log("½½·Ô ÃÊ±âÈ­ ¿Ï·á 1¹ø ½½·Ô : " + currentSlots[0] + " 2¹ø ½½·Ô : " + currentSlots[1] + " ´ÙÀ½ ½½·Ô : " + currentSlots[2]);
     }
     public int[] ShowSlots() => currentSlots;

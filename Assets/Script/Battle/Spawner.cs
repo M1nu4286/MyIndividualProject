@@ -23,7 +23,7 @@ public class Spawner
         }
         Debug.Log($"유닛 {_stageDatas.Length}마리 로드 완료.");
     }
-
+    //간접참조 배열 순서 정렬
     public void GetSortOrder(ref int[] orderList, int entityIndex, RuntimeEntity[] runtimeEntities)
     {
         speedHeap.heapSize = 0;
@@ -42,7 +42,6 @@ public class Spawner
             orderList[i] = PopMaxHeap(ref speedHeap).index;
         }
     }
-
 
 
     private struct SpeedHeap

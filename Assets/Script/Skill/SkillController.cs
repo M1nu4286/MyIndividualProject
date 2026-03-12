@@ -72,4 +72,6 @@ public class SkillController
 
     public int[] GetCurrentDisplayHashes() => _slotLogic.ShowSlots();
     public SkillEntry GetSkillData(int hash) => _database.GetSkillByHash(hash);
+    public SkillEntry GetSkillByIndex(int index) => _database.GetSkillByIndex(index);
+
 }

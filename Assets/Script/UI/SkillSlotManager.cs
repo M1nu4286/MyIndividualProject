@@ -5,53 +5,59 @@ using GameData.Types;
 
 public class SkillSlotManager : MonoBehaviour
 {
-    //[System.Serializable]
-    //public struct SkillCellUI
-    //{
-    //    public Image _icon;
-    //    public Button _button;
-    //}
 
-    [SerializeField] private GameObject _columnPrefab;
-    [SerializeField] private Transform _contentParent;
+    [SerializeField] private GameObject _skillSlotPrefab;
+    [SerializeField] private Transform _horizonTransform;
+    [SerializeField] private GameObject _verticalColumnPrefab;
 
     private Image[] _icons;
     private Button[] _buttons;
     private int _entityCount;
-    //private SkillCellUI[] _allCells;
+
 
     private SkillController[] _controllers;
-    public void Setup(RuntimeEntity[] runtimeEntities, SkillDatabase skillDatabase)
+
+
+    public void InitializeBattleUI(RuntimeEntity[] players, SkillDatabase skillDatabase)
     {
-        _entityCount = runtimeEntities.Length;
-        _controllers = new SkillController[_entityCount]; // 배열 할당
+        Debug.Log("UI 생성 시작");
+        _entityCount = players.Length;
+        _controllers = new SkillController[_entityCount];
         _buttons = new Button[4 * _entityCount];
         _icons = new Image[4 * _entityCount];
 
+        // 1. 레이아웃 엔진 가동 (가로 배치)
         for (int c = 0; c < _entityCount; c++)
         {
-            _controllers[c] = new SkillController(runtimeEntities[c].BaseData, skillDatabase);
+            if (!players[c].isAlive) return;
+            // 유닛당 1개의 세로 열 생성
+            GameObject column = Instantiate(_verticalColumnPrefab, _horizonTransform);
+            _controllers[c] = new SkillController(players[c].BaseData, skillDatabase);
 
-            int[] currentHashes = _controllers[c].ShowSlot(); //프로필 제외 스킬 3칸 저장
-            int defenseHash = runtimeEntities[c].BaseData.Defense;
+            int[] currentIndex = _controllers[c].ShowSlot(); // 0 넥스트 1 2슬   2  1슬
+          
+            int defenseIndex = players[c].BaseData.Defense;
 
+            // 2. 개별 열 내부에 4개의 슬롯 배치 및 데이터 주입
             for (int r = 0; r < 4; r++)
             {
+                GameObject slotObj = Instantiate(_skillSlotPrefab, column.transform);
+                int slotFlatIndex = (c * 4) + r;
 
-                GameObject slot = Instantiate(_columnPrefab, _contentParent);
-                int index = (c * 4) + r;
+                // 참조 캐싱 (하드웨어 접근 최적화)
+                _buttons[slotFlatIndex] = slotObj.GetComponent<Button>();
+                _icons[slotFlatIndex] = slotObj.transform.Find("Icon").GetComponent<Image>();
 
-                _buttons[index] = slot.GetComponent<Button>();
-                _icons[index] = slot.transform.Find("Icon").GetComponent<Image>();
-
+                // 이벤트 바인딩 (클로저 캡처 주의)
                 int entityIdx = c;
                 int rowIdx = r;
 
-                _buttons[index].onClick.AddListener(() => OnCellSelected(entityIdx, rowIdx));
+                // 데이터 인출 및 스프라이트 적용
+                int skillIndex = (r < 3) ? currentIndex[r] : defenseIndex; 
+                var skillData = _controllers[c].GetSkillByIndex(skillIndex);
 
-                int targetHash = (r < 3) ? currentHashes[r] : defenseHash;
-                Sprite icon = _controllers[c].GetSkills(targetHash).skillIcon;
-                SetSprite(entityIdx, r, icon);
+                _buttons[slotFlatIndex].onClick.AddListener(() => OnCellSelected(entityIdx, rowIdx));
+                _icons[slotFlatIndex].sprite = skillData.skillIcon;
             }
         }
     }
@@ -73,6 +79,11 @@ public class SkillSlotManager : MonoBehaviour
         // _buttons[(entityIdx * 4) + rowIdx].interactable = false;
 
         // BattleManager의 선택 풀(Pool)에 데이터 전달 (이 부분은 인터페이스나 액션으로 처리)
+
+        //switch (rowIdx)
+        //{
+        //    case SlotType.
+        //}    
         Debug.Log($"캐릭터 {entityIdx}의 {rowIdx}번 슬롯 선택됨. 풀에 저장 대기.");
     }
 

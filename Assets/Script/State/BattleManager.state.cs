@@ -1,3 +1,5 @@
+using GameData.Types;
+using System.Collections.Generic;
 using UnityEngine;
 
 public partial class BattleManager : MonoBehaviour
@@ -31,7 +33,6 @@ public partial class BattleManager : MonoBehaviour
             _owner.RollSpeed();
             _owner._spawner.GetSortOrder(ref _owner._entityOrder, _owner._entityIndex, _owner._runtimeEntityDatas);
 
-            //_owner._actionExecutionor.BattleLog(_owner._entityOrder, _owner._entityIndex, _owner._runtimeEntityDatas);
             _stateMachine.ChangeState(_owner._statePool[(int)BattleState.EvaluationState]);
             
         }
@@ -49,8 +50,22 @@ public partial class BattleManager : MonoBehaviour
         public override void Enter()
         {
             Debug.Log("Evaluation State: Evaluating actions...");
-            int currentActorIdx = _owner._entityOrder[0];
-            _owner.GetTurnSequencer().ProcessTurn(currentActorIdx, _owner._runtimeEntityDatas);
+           
+            Debug.Log("순서입력완료");
+            List<int> sortedPlayerIndices = new List<int>();
+
+            for (int i = 0; i < _owner._entityIndex; i++)
+            {
+                int entityIdx = _owner._entityOrder[i];
+                if (_owner._runtimeEntityDatas[entityIdx].BaseData.Type == EntityType.Player &&
+                    _owner._runtimeEntityDatas[entityIdx].isAlive)
+                {
+                    sortedPlayerIndices.Add(entityIdx);
+                }
+            }
+
+            // 3. UI 매니저에게 정렬된 '플레이어'들만 전달
+            _owner._turnSequencer.ProcessTurn(sortedPlayerIndices.ToArray(), _owner._runtimeEntityDatas);
         }
 
         public override void Exit()

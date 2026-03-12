@@ -238,7 +238,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &320489593
 RectTransform:
   m_ObjectHideFlags: 0
@@ -255,8 +255,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -964.1882, y: -540.3898}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: -320}
+  m_SizeDelta: {x: 800, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &320489594
 MonoBehaviour:
@@ -296,8 +296,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 691f00ef6572d9b42ac622d91ff377ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillSlotManager
-  _columnPrefab: {fileID: 2968797596284087873, guid: a0f3723e95994bf4abdd04d83122a227, type: 3}
-  _contentParent: {fileID: 320489593}
+  _skillSlotPrefab: {fileID: 2968797596284087873, guid: a0f3723e95994bf4abdd04d83122a227, type: 3}
+  _horizonTransform: {fileID: 320489593}
+  _verticalColumnPrefab: {fileID: 810625048036109192, guid: 08470126409292e44ad6695f35a56a3b, type: 3}
 --- !u!1 &513776423
 GameObject:
   m_ObjectHideFlags: 0
