@@ -65,7 +65,16 @@ public partial class BattleManager : MonoBehaviour
             }
 
             // 3. UI 매니저에게 정렬된 '플레이어'들만 전달
-            _owner._turnSequencer.ProcessTurn(sortedPlayerIndices.ToArray(), _owner._runtimeEntityDatas);
+            //_owner._turnSequencer.ProcessTurn(sortedPlayerIndices.ToArray(), );
+
+            if (_owner.GetSkillUI().IsInitialized == false)
+            {
+                _owner.GetTurnSequencer().ProcessTurn(sortedPlayerIndices.ToArray(), _owner._runtimeEntityDatas);
+            }
+            else
+            {
+                _owner.GetSkillUI().UpdateSkillUI(_owner._runtimeEntityDatas);
+            }
         }
 
         public override void Exit()
