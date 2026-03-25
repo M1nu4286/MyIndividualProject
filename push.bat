@@ -28,8 +28,7 @@ git branch -M main
 git pull origin main --rebase
 
 :: 최종 전송
-:: git push -u origin main
-git push -u origin claude/player-skill-columns-p9jeM
+git push -u origin main
 
 if %errorlevel% neq 0 (
     echo.

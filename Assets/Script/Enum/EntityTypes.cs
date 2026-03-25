@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace GameData.Types
 {
-    // 1. 엔티티 진영 구분
+    // 1. 엔티티 타입 정의
     public enum EntityType : byte
     {
         None = 0,
@@ -28,13 +28,13 @@ namespace GameData.Types
         Wrath,   // 분노
         Lust,    // 색욕
         Sloth,   // 나태
-        Glut, // 폭식
+        Glut, // 탐식
         Gloom,   // 우울
         Pride,   // 오만
         Envy     // 질투
     }
 
-    // 3. 공격 판정 타입
+    // 3. 공격 타입
     public enum AttackType : byte
     {
         None = 0,
@@ -51,7 +51,7 @@ namespace GameData.Types
         Counter, // 반격
         Guard    // 방어
     }
-    // 5. 엔티티 정보
+    // 5. 엔티티 데이터
     [System.Serializable]
     public struct EntityEntry
     {
@@ -74,14 +74,15 @@ namespace GameData.Types
         public int SkillIndex2;
         public int SkillIndex3;
         public int Defense;
+        public Sprite profileIcon;
     }
-    // 6. 스킬 정보
+    // 6. 스킬 데이터
     [System.Serializable]
-    public struct SkillEntry // 개별 스킬 정보 (값 타입)
+    public struct SkillEntry // 개별 스킬 데이터 (한 타입)
     {
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         public String Editor_Owner_ID;
-        #endif
+#endif
         public int Skills_Num;
         public int SkillIDHash;
         public int BaseDamage;
@@ -92,6 +93,4 @@ namespace GameData.Types
         public DefenseType DefenseType;
         public Sprite skillIcon;
     }
-
-
 }
